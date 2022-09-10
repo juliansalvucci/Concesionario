@@ -1,0 +1,9 @@
+dist/
+nbproject/
+build/
+build.*
+
+/dist/
+/nbproject/
+/build/
+/build.*
