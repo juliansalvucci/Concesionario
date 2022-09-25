@@ -36,6 +36,8 @@ public class FrmPrincipal extends  javax.swing.JFrame {
         jmenu = new javax.swing.JMenuBar();
         mnConfiguracion = new javax.swing.JMenu();
         MiMarca = new javax.swing.JMenuItem();
+        mnuItemModelo = new javax.swing.JMenuItem();
+        mnuItemCliente = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ejemplo");
@@ -44,6 +46,11 @@ public class FrmPrincipal extends  javax.swing.JFrame {
 
         mnConfiguracion.setText("Configuración");
         mnConfiguracion.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
+        mnConfiguracion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnConfiguracionActionPerformed(evt);
+            }
+        });
 
         MiMarca.setLabel("Marca");
         MiMarca.addActionListener(new java.awt.event.ActionListener() {
@@ -52,6 +59,22 @@ public class FrmPrincipal extends  javax.swing.JFrame {
             }
         });
         mnConfiguracion.add(MiMarca);
+
+        mnuItemModelo.setText("Modelo");
+        mnuItemModelo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuItemModeloActionPerformed(evt);
+            }
+        });
+        mnConfiguracion.add(mnuItemModelo);
+
+        mnuItemCliente.setText("Cliente");
+        mnuItemCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuItemClienteActionPerformed(evt);
+            }
+        });
+        mnConfiguracion.add(mnuItemCliente);
 
         jmenu.add(mnConfiguracion);
 
@@ -81,6 +104,19 @@ public class FrmPrincipal extends  javax.swing.JFrame {
     }//GEN-LAST:event_mnuTipoMarcaActionPerformed
 
     */
+    private void mnuItemModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuItemModeloActionPerformed
+       this.gestorVista.abrirModelo(getEscritorio());
+    }//GEN-LAST:event_mnuItemModeloActionPerformed
+
+    private void mnuItemClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuItemClienteActionPerformed
+       this.gestorVista.abrirCliente(getEscritorio());
+    }//GEN-LAST:event_mnuItemClienteActionPerformed
+
+    private void mnConfiguracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnConfiguracionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnConfiguracionActionPerformed
+
+    
 public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -94,6 +130,8 @@ public static void main(String args[]) {
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenuBar jmenu;
     private javax.swing.JMenu mnConfiguracion;
+    private javax.swing.JMenuItem mnuItemCliente;
+    private javax.swing.JMenuItem mnuItemModelo;
     // End of variables declaration//GEN-END:variables
 
 }

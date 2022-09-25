@@ -47,7 +47,11 @@ public class HibernateUtil  {
             conf.addAnnotatedClass(Modelos.GestionProyecto.ItemProyecto.class);
             
             conf.addPackage("Modelos.Concesionario");
+            conf.addAnnotatedClass(Modelos.Concesionario.Cliente.class);
+            conf.addAnnotatedClass(Modelos.Concesionario.Modelo.class);
             conf.addAnnotatedClass(Modelos.Concesionario.Marca.class);
+            conf.addAnnotatedClass(Modelos.Concesionario.Pais.class);
+            
            
             try {
                     sessionFactory = conf.buildSessionFactory();

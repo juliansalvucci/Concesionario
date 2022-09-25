@@ -4,7 +4,6 @@
  */
 package Modelos.Concesionario;
 
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,29 +14,30 @@ import javax.persistence.Table;
  * @author julia
  */
 
-@Entity
-@Table (name="marca") 
 
-public class Marca implements Comparable
+@Entity
+@Table (name="cliente") 
+
+public class Cliente implements Comparable
 {
     @Id @GeneratedValue(strategy=javax.persistence.GenerationType.AUTO)
     private long id;
         
-    private String nombreMarca;
+    private String nombreCliente;
     
     private int estado;
     
     //@OneToOne (targetEntity = Pais.class, cascade= CascadeType.ALL,fetch=FetchType.LAZY)
     //private Pais pais;
     
-    public String getNombreMarca()
+    public String getNombreCliente()
     {
-        return nombreMarca;
+        return nombreCliente;
     }
 
-    public void setNombreMarca(String nombreMarca) 
+    public void setNombreCliente(String nombreCliente) 
     {
-        this.nombreMarca = nombreMarca;
+        this.nombreCliente = nombreCliente;
     }
 
     public int getEstado()
@@ -71,11 +71,11 @@ public class Marca implements Comparable
     */
 
     ///////////////////////////////////////////
-    public Marca(){}
+    public Cliente(){}
 
-    public Marca(String nombreMarca) 
+    public Cliente(String nombreCliente) 
     {
-        this.setNombreMarca(nombreMarca);
+        this.setNombreCliente(nombreCliente);
     }
     
     public void eliminar()
@@ -86,13 +86,13 @@ public class Marca implements Comparable
     @Override
     public String toString () 
     {
-        return  this.getNombreMarca();
+        return  this.getNombreCliente();
     }  
     
     @Override
     public int compareTo(Object o) 
     {
-        var m = (Marca) o;
-        return this.getNombreMarca().compareTo(m.getNombreMarca());
+        var m = (Cliente) o;
+        return this.getNombreCliente().compareTo(m.getNombreCliente());
     }    
 }

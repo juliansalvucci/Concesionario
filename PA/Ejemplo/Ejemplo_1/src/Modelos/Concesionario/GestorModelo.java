@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Modelos.Concesionario;
+
 import Hibernate.GestorHibernate;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
@@ -12,16 +13,17 @@ import javax.swing.DefaultComboBoxModel;
  * @author julia
  */
 
-public class GestorMarca extends  GestorHibernate{
-    private Marca  model;
+
+public class GestorModelo extends  GestorHibernate{
+    private Modelo  model;
     //private GestorTipoProyecto gestorTipoProyecto = new GestorTipoProyecto();
     
-    public Marca  getModel() {
+    public Modelo  getModel() {
         return model;
     }
 
-    public void setModel(Marca  marca) {
-        this.model = marca;
+    public void setModel(Modelo  modelo) {
+        this.model = modelo;
     }
 
     /*
@@ -39,12 +41,12 @@ public class GestorMarca extends  GestorHibernate{
       //  return String.valueOf(this.getModel().getCodigo());
     //}
    
-    public String getNombreMarca() {
-        return this.getModel().getNombreMarca();
+    public String getNombreModelo() {
+        return this.getModel().getNombreModelo();
     }
 
-    public void setNombreMarca(String nombreMarca) {
-        this.getModel().setNombreMarca(nombreMarca);
+    public void setNombreModelo(String nombreModelo) {
+        this.getModel().setNombreModelo(nombreModelo);
     }
 
     public int getEstado() {
@@ -81,7 +83,7 @@ public class GestorMarca extends  GestorHibernate{
        
     // Altas, bajas y modificaciones 
     public void newModel() {
-         this.setModel(new Marca());
+         this.setModel(new Modelo());
     }
 
     /*
@@ -120,8 +122,8 @@ public class GestorMarca extends  GestorHibernate{
     }
     
    // busquedas, iteradores y otras 
-    public List <Marca> listar(){   
-        return this.listarClase(Marca.class,"estado",0);
+    public List <Modelo> listar(){   
+        return this.listarClase(Modelo.class,"estado",0);
     }
         
     /*
@@ -136,7 +138,7 @@ public class GestorMarca extends  GestorHibernate{
     public DefaultComboBoxModel getComboModel() {      
         DefaultComboBoxModel auxModel= new DefaultComboBoxModel();
         auxModel.addElement("");
-        for (Marca auxTipo : this.listar()) {
+        for (Modelo auxTipo : this.listar()) {
             auxModel.addElement(auxTipo);
         }
          return auxModel;
@@ -188,4 +190,3 @@ public class GestorMarca extends  GestorHibernate{
 
 
 }
-

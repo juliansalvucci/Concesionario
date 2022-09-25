@@ -434,10 +434,10 @@ public class FrmProyecto extends FrmGenerica {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(300, 80, 50, 23);
+        jButton1.setBounds(300, 80, 50, 22);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(10, 0, 610, 120);
+        jPanel1.setBounds(10, 10, 610, 120);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel2.setLayout(null);
@@ -528,7 +528,7 @@ public class FrmProyecto extends FrmGenerica {
             }
         });
         jPanel3.add(btnSalir);
-        btnSalir.setBounds(100, 10, 75, 23);
+        btnSalir.setBounds(100, 10, 75, 21);
 
         btnCancelar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnCancelar.setText("Cancelar");
@@ -605,7 +605,6 @@ public class FrmProyecto extends FrmGenerica {
         btnAgregar.setBounds(340, 140, 110, 30);
 
         btnEliminar1.setText("Quitar");
-        btnEliminar1.setOpaque(false);
         btnEliminar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminar1ActionPerformed(evt);
@@ -626,7 +625,7 @@ public class FrmProyecto extends FrmGenerica {
             }
         });
         getContentPane().add(btnImprimir);
-        btnImprimir.setBounds(360, 330, 37, 23);
+        btnImprimir.setBounds(360, 330, 22, 22);
 
         getAccessibleContext().setAccessibleName("Carg");
 

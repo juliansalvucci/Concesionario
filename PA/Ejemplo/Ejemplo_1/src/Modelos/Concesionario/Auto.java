@@ -4,10 +4,12 @@
  */
 package Modelos.Concesionario;
 
-
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -15,29 +17,27 @@ import javax.persistence.Table;
  * @author julia
  */
 
-@Entity
-@Table (name="marca") 
 
-public class Marca implements Comparable
+@Entity
+@Table (name="auto") 
+public class Auto implements Comparable
 {
     @Id @GeneratedValue(strategy=javax.persistence.GenerationType.AUTO)
-    private long id;
-        
-    private String nombreMarca;
-    
+    private long id; 
+    private Double precio;
     private int estado;
+    //@OneToOne (targetEntity = Marca.class)
+    @OneToOne (targetEntity = Marca.class, cascade= CascadeType.ALL,fetch=FetchType.LAZY)
+    private Marca marca;
     
-    //@OneToOne (targetEntity = Pais.class, cascade= CascadeType.ALL,fetch=FetchType.LAZY)
-    //private Pais pais;
-    
-    public String getNombreMarca()
+    public Double getPrecio()
     {
-        return nombreMarca;
+        return precio;
     }
 
-    public void setNombreMarca(String nombreMarca) 
+    public void setPrecio(Double precio) 
     {
-        this.nombreMarca = nombreMarca;
+        this.precio = precio;
     }
 
     public int getEstado()
@@ -59,23 +59,21 @@ public class Marca implements Comparable
     {
         this.id = id;
     }
+
+    public Marca getMarca() {
+        return marca;
+    }
+
+    public void setMarca(Marca marca) {
+        this.marca = marca;
+    }
     
-    /*
-    public Pais getPais() {
-        return pais;
-    }
-
-    public void setPais(Pais pais) {
-        this.pais = pais;
-    }
-    */
-
     ///////////////////////////////////////////
-    public Marca(){}
+    public Auto(){}
 
-    public Marca(String nombreMarca) 
+    public Auto(Double precio) 
     {
-        this.setNombreMarca(nombreMarca);
+        this.setPrecio(precio);
     }
     
     public void eliminar()
@@ -86,13 +84,13 @@ public class Marca implements Comparable
     @Override
     public String toString () 
     {
-        return  this.getNombreMarca();
+        return this.getPrecio().toString();
     }  
     
     @Override
     public int compareTo(Object o) 
     {
-        var m = (Marca) o;
-        return this.getNombreMarca().compareTo(m.getNombreMarca());
+        var m = (Auto) o;
+        return this.getPrecio().compareTo(m.getPrecio());
     }    
 }

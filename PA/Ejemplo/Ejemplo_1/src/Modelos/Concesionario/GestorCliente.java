@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Modelos.Concesionario;
+
 import Hibernate.GestorHibernate;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
@@ -12,16 +13,16 @@ import javax.swing.DefaultComboBoxModel;
  * @author julia
  */
 
-public class GestorMarca extends  GestorHibernate{
-    private Marca  model;
+public class GestorCliente extends  GestorHibernate{
+    private Cliente  model;
     //private GestorTipoProyecto gestorTipoProyecto = new GestorTipoProyecto();
     
-    public Marca  getModel() {
+    public Cliente  getModel() {
         return model;
     }
 
-    public void setModel(Marca  marca) {
-        this.model = marca;
+    public void setModel(Cliente  cliente) {
+        this.model = cliente;
     }
 
     /*
@@ -40,11 +41,11 @@ public class GestorMarca extends  GestorHibernate{
     //}
    
     public String getNombreMarca() {
-        return this.getModel().getNombreMarca();
+        return this.getModel().getNombreCliente();
     }
 
     public void setNombreMarca(String nombreMarca) {
-        this.getModel().setNombreMarca(nombreMarca);
+        this.getModel().setNombreCliente(nombreMarca);
     }
 
     public int getEstado() {
@@ -81,7 +82,7 @@ public class GestorMarca extends  GestorHibernate{
        
     // Altas, bajas y modificaciones 
     public void newModel() {
-         this.setModel(new Marca());
+         this.setModel(new Cliente());
     }
 
     /*
@@ -120,8 +121,8 @@ public class GestorMarca extends  GestorHibernate{
     }
     
    // busquedas, iteradores y otras 
-    public List <Marca> listar(){   
-        return this.listarClase(Marca.class,"estado",0);
+    public List <Cliente> listar(){   
+        return this.listarClase(Cliente.class,"estado",0);
     }
         
     /*
@@ -136,7 +137,7 @@ public class GestorMarca extends  GestorHibernate{
     public DefaultComboBoxModel getComboModel() {      
         DefaultComboBoxModel auxModel= new DefaultComboBoxModel();
         auxModel.addElement("");
-        for (Marca auxTipo : this.listar()) {
+        for (Cliente auxTipo : this.listar()) {
             auxModel.addElement(auxTipo);
         }
          return auxModel;
@@ -188,4 +189,3 @@ public class GestorMarca extends  GestorHibernate{
 
 
 }
-

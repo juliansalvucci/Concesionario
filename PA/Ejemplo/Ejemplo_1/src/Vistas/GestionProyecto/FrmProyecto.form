@@ -48,7 +48,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="10" y="0" width="610" height="120"/>
+          <AbsoluteConstraints x="10" y="10" width="610" height="120"/>
         </Constraint>
       </Constraints>
 
@@ -534,7 +534,6 @@
     <Component class="javax.swing.JButton" name="btnEliminar1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Quitar"/>
-        <Property name="opaque" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminar1ActionPerformed"/>

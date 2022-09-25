@@ -4,7 +4,6 @@
  */
 package Modelos.Concesionario;
 
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -16,28 +15,25 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table (name="marca") 
+@Table (name="pais") 
 
-public class Marca implements Comparable
+public class Pais implements Comparable
 {
     @Id @GeneratedValue(strategy=javax.persistence.GenerationType.AUTO)
     private long id;
         
-    private String nombreMarca;
+    private String nombrePais;
     
     private int estado;
-    
-    //@OneToOne (targetEntity = Pais.class, cascade= CascadeType.ALL,fetch=FetchType.LAZY)
-    //private Pais pais;
-    
-    public String getNombreMarca()
+        
+    public String getNombrePais()
     {
-        return nombreMarca;
+        return nombrePais;
     }
 
-    public void setNombreMarca(String nombreMarca) 
+    public void setNombrePais(String nombrePais) 
     {
-        this.nombreMarca = nombreMarca;
+        this.nombrePais = nombrePais;
     }
 
     public int getEstado()
@@ -59,23 +55,13 @@ public class Marca implements Comparable
     {
         this.id = id;
     }
-    
-    /*
-    public Pais getPais() {
-        return pais;
-    }
-
-    public void setPais(Pais pais) {
-        this.pais = pais;
-    }
-    */
 
     ///////////////////////////////////////////
-    public Marca(){}
+    public Pais(){}
 
-    public Marca(String nombreMarca) 
+    public Pais(String nombrePais) 
     {
-        this.setNombreMarca(nombreMarca);
+        this.setNombrePais(nombrePais);
     }
     
     public void eliminar()
@@ -86,13 +72,14 @@ public class Marca implements Comparable
     @Override
     public String toString () 
     {
-        return  this.getNombreMarca();
+        return  this.getNombrePais();
     }  
     
     @Override
     public int compareTo(Object o) 
     {
-        var m = (Marca) o;
-        return this.getNombreMarca().compareTo(m.getNombreMarca());
+        var m = (Pais) o;
+        return this.getNombrePais().compareTo(m.getNombrePais());
     }    
 }
+

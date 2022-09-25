@@ -4,6 +4,8 @@
  */
 package Vistas.Concesionario;
 
+import Modelos.Concesionario.Cliente;
+import Modelos.Concesionario.GestorCliente;
 import Modelos.Concesionario.GestorMarca;
 import Modelos.Concesionario.Marca;
 import Vistas.GestorVista;
@@ -17,37 +19,36 @@ import javax.swing.JTable;
  * @author julia
  */
 
-
-public class GestorVistaMarca extends GestorVista {
-    FrmMarca form;  
-    GestorMarca gestor= new GestorMarca();                  
+public class GestorVistaCliente extends GestorVista {
+    FrmCliente form;  
+    GestorCliente gestor= new GestorCliente();                  
  
  //Definicion de getter y setter de variables, objetos y gestores   
-    public Marca getModel() {
+    public Cliente getModel() {
         return this.gestor.getModel();
     }
 
     public void setModel(JComboBox cmb) {
-        this.setModel((Marca) cmb.getSelectedItem());
+        this.setModel((Cliente) cmb.getSelectedItem());
     }
 
-    private void setModel(Marca model) {
+    private void setModel(Cliente model) {
         this.getGestor().setModel(model);
     }
 
-    public GestorMarca getGestor() {
+    public GestorCliente getGestor() {
         return gestor;
     }
 
-    public void setGestor(GestorMarca gestor) {
+    public void setGestor(GestorCliente gestor) {
         this.gestor = gestor;
     }
 
-    public FrmMarca getForm() {
+    public FrmCliente getForm() {
         return form;
     }
 
-    public void setForm(FrmMarca form) {
+    public void setForm(FrmCliente form) {
         this.form = form;
     }
   
@@ -79,7 +80,7 @@ public class GestorVistaMarca extends GestorVista {
     @Override
     public int setModel() { 
         if (this.isDatosValidos()) {
-            this.getGestor().setNombreMarca(this.getForm().getTxtNombreMarca().getText());     
+            this.getGestor().setNombreMarca(this.getForm().getTxtNombreCliente().getText());     
             //this.getGestor().setTipoProyecto((TipoProyecto) this.getForm().getCmbTipoProyecto().getSelectedItem());
             //this.getGestor().setDetalle(this.getForm().getTbl());
             return 0;}
@@ -100,9 +101,9 @@ public class GestorVistaMarca extends GestorVista {
     
     @Override
     public boolean isDatosValidos() {
-        if (this.isEmpty(this.getForm().getTxtNombreMarca())) 
+        if (this.isEmpty(this.getForm().getTxtNombreCliente())) 
            { JOptionPane.showMessageDialog(null, "Falta ingresar la descripción del Proyecto");
-            this.getForm().getTxtNombreMarca().grabFocus();
+            this.getForm().getTxtNombreCliente().grabFocus();
             return false; 
            } 
     
@@ -144,7 +145,7 @@ public class GestorVistaMarca extends GestorVista {
     @Override
     public void openFormulario(JDesktopPane pantalla) {
         this.setEscritorio(pantalla);
-        this.setForm(new FrmMarca(this));
+        this.setForm(new FrmCliente(this));
         this.setTitulo(this.getForm().getTitle());
         this.getEscritorio().add(this.getForm());
         this.getForm().setVisible(true);
@@ -153,7 +154,7 @@ public class GestorVistaMarca extends GestorVista {
     @Override
     public void getView() {
         //this.getForm().getTxtCodigo().setText(this.getGestor().getCodigo());
-        this.getForm().getTxtNombreMarca().setText(this.getGestor().getNombreMarca());
+        this.getForm().getTxtNombreCliente().setText(this.getGestor().getNombreMarca());
         //this.getForm().getCmbTipoProyecto().setSelectedItem(this.getGestor().getTipoProyecto());
         //this.setItems(this.getForm().getTbl());
     }

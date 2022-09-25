@@ -15,7 +15,7 @@ public class Proyecto implements Comparable{
     private String denominacion;       
     private String observacion;    
     private int estado;
-//      @OneToOne (targetEntity = TipoProyecto.class)
+//  @OneToOne (targetEntity = TipoProyecto.class)
     @OneToOne (targetEntity = TipoProyecto.class, cascade= CascadeType.ALL,fetch=FetchType.LAZY)
     private TipoProyecto tipoProyecto;
 

@@ -2,30 +2,29 @@ package Vistas.Concesionario;
 import Vistas.FrmGenerica;
 import javax.swing.*;
 
-public class FrmMarca extends FrmGenerica 
+public class FrmAuto extends FrmGenerica 
 {
-    private GestorVistaMarca gestorVista;
+    private GestorVistaAuto gestorVista;
     private int YES_NO_OPTION;
 
-    public GestorVistaMarca getGestorVista() 
+    public GestorVistaAuto getGestorVista() 
     {
         return gestorVista;
     }
 
-    public void setGestorVista(GestorVistaMarca gestorVista) 
+    public void setGestorVista(GestorVistaAuto  gestorVista) 
     {
         this.gestorVista = gestorVista;
     }
 
 // Definicion de getter y setter de los componentes visuales del formulario
-    public JTextField getTxtNombreMarca() 
-    {
-        return txtNombreMarca;
+    public JTextField getTxtPrecio(){
+        return txtPrecio;
     }
 
-    public void setTxtNombreMarca(JTextField txtNombreMarca) 
+    public void setTxtPrecio(JTextField txtPrecio) 
     {
-        this.txtNombreMarca = txtNombreMarca;
+        this.txtPrecio = txtPrecio;
     }
 
     public JComboBox getCmbNombreMarca()
@@ -39,7 +38,7 @@ public class FrmMarca extends FrmGenerica
     }
 
 // Constructores del formulario 
-    public FrmMarca(GestorVistaMarca gestorVista)
+    public FrmAuto(GestorVistaAuto  gestorVista)
     {
         try{
            initComponents();
@@ -51,7 +50,7 @@ public class FrmMarca extends FrmGenerica
         this.onViewOpened();
     }
 
-    public FrmMarca() 
+    public FrmAuto() 
     {
         initComponents();
     }
@@ -137,12 +136,12 @@ public class FrmMarca extends FrmGenerica
     @Override
     public void viewCamposEnabled(Boolean tipo)
     {
-        txtNombreMarca.setEnabled(tipo);   
+        txtPrecio.setEnabled(tipo);   
     }
 
     private void viewMarcaVisible(Boolean tipo)
     {
-        txtNombreMarca.setVisible(tipo);
+        txtPrecio.setVisible(tipo);
         cmbNombreMarca.setVisible(!tipo);
     }
 
@@ -164,7 +163,7 @@ public class FrmMarca extends FrmGenerica
     public void viewEditarEnter()
     {
         this.viewBasic();
-        txtNombreMarca.grabFocus();
+        txtPrecio.grabFocus();
         this.getGestorVista().setModoEditar();
     }
 
@@ -206,14 +205,14 @@ public class FrmMarca extends FrmGenerica
         this.clearView();
         this.getGestorVista().newModel();
         this.viewMarcaVisible(true);
-        txtNombreMarca.grabFocus();
+        txtPrecio.grabFocus();
     }
  
    
     @Override
     public void grabFocus()
     {
-        txtNombreMarca.grabFocus();
+        txtPrecio.grabFocus();
     }
 
     public void cargarComboModel()
@@ -272,8 +271,14 @@ public class FrmMarca extends FrmGenerica
         jPanel1 = new javax.swing.JPanel();
         cmbNombreMarca = new javax.swing.JComboBox();
         btnBuscar = new javax.swing.JButton();
-        txtNombreMarca = new javax.swing.JTextField();
+        txtPrecio = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        txtPrecio1 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        cmbNombreMarca1 = new javax.swing.JComboBox();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tbl = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         btnNuevo = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
@@ -283,7 +288,7 @@ public class FrmMarca extends FrmGenerica
         btnSalir = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
 
-        setTitle("Gestión Marcas");
+        setTitle("Gestión Autos");
         setToolTipText("Proyecto");
         setFrameIcon(null);
         setName("TipoServicio"); // NOI18N
@@ -304,7 +309,7 @@ public class FrmMarca extends FrmGenerica
             }
         });
         jPanel1.add(cmbNombreMarca);
-        cmbNombreMarca.setBounds(110, 50, 460, 23);
+        cmbNombreMarca.setBounds(110, 70, 460, 23);
 
         btnBuscar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Search.png"))); // NOI18N
@@ -322,22 +327,75 @@ public class FrmMarca extends FrmGenerica
             }
         });
         jPanel1.add(btnBuscar);
-        btnBuscar.setBounds(570, 40, 30, 40);
+        btnBuscar.setBounds(570, 20, 30, 40);
 
-        txtNombreMarca.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
-        txtNombreMarca.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        jPanel1.add(txtNombreMarca);
-        txtNombreMarca.setBounds(110, 50, 460, 23);
+        txtPrecio.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
+        txtPrecio.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtPrecio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPrecioActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtPrecio);
+        txtPrecio.setBounds(110, 110, 460, 23);
 
         jLabel2.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
-        jLabel2.setText("Marca");
+        jLabel2.setText("Precio");
         jLabel2.setToolTipText("");
         jLabel2.setRequestFocusEnabled(false);
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(50, 50, 90, 20);
+        jLabel2.setBounds(50, 110, 90, 20);
+
+        txtPrecio1.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
+        txtPrecio1.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jPanel1.add(txtPrecio1);
+        txtPrecio1.setBounds(110, 30, 460, 23);
+
+        jLabel3.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
+        jLabel3.setText("Modelo");
+        jLabel3.setToolTipText("");
+        jLabel3.setRequestFocusEnabled(false);
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(50, 70, 90, 20);
+
+        jLabel4.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
+        jLabel4.setText("Marca");
+        jLabel4.setToolTipText("");
+        jLabel4.setRequestFocusEnabled(false);
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(50, 30, 90, 17);
+
+        cmbNombreMarca1.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
+        cmbNombreMarca1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbNombreMarca1ItemStateChanged(evt);
+            }
+        });
+        cmbNombreMarca1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbNombreMarca1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmbNombreMarca1);
+        cmbNombreMarca1.setBounds(110, 30, 460, 23);
+
+        tbl.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Marca", "Modelo", "Precio"
+            }
+        ));
+        tbl.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jScrollPane2.setViewportView(tbl);
+
+        jPanel1.add(jScrollPane2);
+        jScrollPane2.setBounds(10, 150, 600, 220);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(10, 0, 610, 120);
+        jPanel1.setBounds(10, 10, 610, 370);
         jPanel1.getAccessibleContext().setAccessibleName("");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -411,7 +469,7 @@ public class FrmMarca extends FrmGenerica
         btnEditar.setBounds(90, 10, 75, 23);
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(10, 140, 340, 40);
+        jPanel2.setBounds(10, 390, 340, 40);
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel3.setLayout(null);
@@ -451,11 +509,11 @@ public class FrmMarca extends FrmGenerica
         btnCancelar.setBounds(10, 10, 75, 23);
 
         getContentPane().add(jPanel3);
-        jPanel3.setBounds(440, 140, 180, 40);
+        jPanel3.setBounds(440, 390, 180, 40);
 
         getAccessibleContext().setAccessibleName("Carg");
 
-        setBounds(150, 0, 653, 230);
+        setBounds(150, 0, 653, 485);
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmbNombreMarcaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbNombreMarcaItemStateChanged
@@ -561,6 +619,18 @@ public class FrmMarca extends FrmGenerica
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbNombreMarcaActionPerformed
 
+    private void txtPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPrecioActionPerformed
+
+    private void cmbNombreMarca1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbNombreMarca1ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbNombreMarca1ItemStateChanged
+
+    private void cmbNombreMarca1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNombreMarca1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbNombreMarca1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
@@ -571,11 +641,17 @@ public class FrmMarca extends FrmGenerica
     public javax.swing.JButton btnNuevo;
     public javax.swing.JButton btnSalir;
     private javax.swing.JComboBox cmbNombreMarca;
+    private javax.swing.JComboBox cmbNombreMarca1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField txtNombreMarca;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tbl;
+    private javax.swing.JTextField txtPrecio;
+    private javax.swing.JTextField txtPrecio1;
     // End of variables declaration//GEN-END:variables
 
 
