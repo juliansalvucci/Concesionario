@@ -322,7 +322,7 @@ public class FrmCliente extends FrmGenerica {
         tbl = new javax.swing.JTable();
         btnImprimir = new javax.swing.JButton();
 
-        setTitle("Cliente");
+        setTitle("Gestión clientes");
         setToolTipText("Proyecto");
         setFrameIcon(null);
         setName("TipoServicio"); // NOI18N

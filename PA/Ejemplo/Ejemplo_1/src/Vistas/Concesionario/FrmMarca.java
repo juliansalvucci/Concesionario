@@ -323,7 +323,7 @@ public class FrmMarca extends FrmGenerica {
         tbl = new javax.swing.JTable();
         btnImprimir = new javax.swing.JButton();
 
-        setTitle("Marca");
+        setTitle("Gestión marcas");
         setToolTipText("Proyecto");
         setFrameIcon(null);
         setName("TipoServicio"); // NOI18N

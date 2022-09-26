@@ -2,7 +2,7 @@
 
 <Form version="1.5" maxVersion="1.6" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
   <Properties>
-    <Property name="title" type="java.lang.String" value="Cliente"/>
+    <Property name="title" type="java.lang.String" value="Gesti&#xf3;n clientes"/>
     <Property name="toolTipText" type="java.lang.String" value="Proyecto"/>
     <Property name="frameIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
       <Image iconType="0" name="null"/>

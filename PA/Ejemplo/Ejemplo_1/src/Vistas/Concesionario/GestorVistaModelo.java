@@ -17,66 +17,79 @@ import javax.swing.JTable;
  * @author julia
  */
 
-public class GestorVistaModelo extends GestorVista {
+public class GestorVistaModelo extends GestorVista 
+{
     FrmModelo form;  
     GestorModelo gestor= new GestorModelo();                  
  
  //Definicion de getter y setter de variables, objetos y gestores   
-    public Modelo getModel() {
+    public Modelo getModel() 
+    {
         return this.gestor.getModel();
     }
 
-    public void setModel(JComboBox cmb) {
+    public void setModel(JComboBox cmb)
+    {
         this.setModel((Modelo) cmb.getSelectedItem());
     }
 
-    private void setModel(Modelo model) {
+    private void setModel(Modelo model) 
+    {
         this.getGestor().setModel(model);
     }
 
-    public GestorModelo getGestor() {
+    public GestorModelo getGestor() 
+    {
         return gestor;
     }
 
-    public void setGestor(GestorModelo gestor) {
+    public void setGestor(GestorModelo gestor)
+    {
         this.gestor = gestor;
     }
 
-    public FrmModelo getForm() {
+    public FrmModelo getForm() 
+    {
         return form;
     }
 
-    public void setForm(FrmModelo form) {
+    public void setForm(FrmModelo form)
+    {
         this.form = form;
     }
   
-     public void initializeTabla(JTable tbl) {
-        String[] titulo={"","Deuda"};
-        String[] ancho ={"5","200"};
+    public void initializeTabla(JTable tbl)
+    {
+        String[] titulo={"","Nombre"};
+        String[] ancho ={"5","570"};
         this.newModelTable(tbl,titulo,ancho);  
     } 
     
     
     @Override
-    public void newModel() {
+    public void newModel() 
+    {
         this.gestor.newModel();
         this.setModoNuevo();
     } 
 
     @Override
-    public void cancelarView() {
+    public void cancelarView() 
+    {
         
     }
 
     @Override
-    public void deleteView() {
+    public void deleteView() 
+    {
         
          this.getGestor().eliminar();
          this.getForm().viewEliminar();
     }
     
     @Override
-    public int setModel() { 
+    public int setModel() 
+    { 
         if (this.isDatosValidos()) {
             this.getGestor().setNombreModelo(this.getForm().getTxtNombreModelo().getText());     
             //this.getGestor().setTipoProyecto((TipoProyecto) this.getForm().getCmbTipoProyecto().getSelectedItem());
@@ -88,22 +101,26 @@ public class GestorVistaModelo extends GestorVista {
     }
     
     @Override
-    public void saveView() {
+    public void saveView()
+    {
         int err;
         err= this.setModel();
-        if (err ==0){ 
+        if (err ==0)
+        { 
            this.getGestor().saveModel(this.getOpcABM());
            this.actualizarView();
         }
     }
     
     @Override
-    public boolean isDatosValidos() {
+    public boolean isDatosValidos() 
+    {
         if (this.isEmpty(this.getForm().getTxtNombreModelo())) 
-           { JOptionPane.showMessageDialog(null, "Falta ingresar la descripción del Proyecto");
+        { 
+            JOptionPane.showMessageDialog(null, "Falta ingresar la descripción del Proyecto");
             this.getForm().getTxtNombreModelo().grabFocus();
             return false; 
-           } 
+        } 
     
         /*
         if (this.isEmpty(this.getForm().getTbl())) 
@@ -136,12 +153,14 @@ public class GestorVistaModelo extends GestorVista {
     }
     */
 
-    public void setModelModelo(JComboBox cmb) {
+    public void setModelModelo(JComboBox cmb)
+    {
         cmb.setModel(gestor.getComboModel());
     }
  
     @Override
-    public void openFormulario(JDesktopPane pantalla) {
+    public void openFormulario(JDesktopPane pantalla) 
+    {
         this.setEscritorio(pantalla);
         this.setForm(new FrmModelo(this));
         this.setTitulo(this.getForm().getTitle());
@@ -150,7 +169,8 @@ public class GestorVistaModelo extends GestorVista {
     }
       
     @Override
-    public void getView() {
+    public void getView()
+    {
         //this.getForm().getTxtCodigo().setText(this.getGestor().getCodigo());
         this.getForm().getTxtNombreModelo().setText(this.getGestor().getNombreModelo());
         //this.getForm().getCmbTipoProyecto().setSelectedItem(this.getGestor().getTipoProyecto());
@@ -158,9 +178,11 @@ public class GestorVistaModelo extends GestorVista {
     }
     
     @Override
-    public void actualizarView() {
+    public void actualizarView() 
+    {
         this.getForm().viewGuardar();
-        if (this.getOpcABM()==0) {
+        if (this.getOpcABM()==0)
+        {
             //this.getForm().getTxtCodigo().setText(this.getGestor().getCodigo());
             //this.getGestor().setDetalle(this.getForm().getTbl());
         }
@@ -197,18 +219,21 @@ public class GestorVistaModelo extends GestorVista {
     */
 
    
-    private boolean isItemValidos() {
+    private boolean isItemValidos() 
+    {
         return true;
     }
 
-    public void removeItem() {
-       if (this.isItemTablaSelected(this.getForm().getTbl())){
+    public void removeItem() 
+    {
+       if (this.isItemTablaSelected(this.getForm().getTbl()))
+       {
            this.removeItemTabla(this.getForm().getTbl());
-        }
+       }
     }
 
-   public void imprimir() {
-
+   public void imprimir() 
+   {
         this.abrirListado(this.pathReportes+"ListadoTipoDominio.jasper");
         this.agregarParametroListado("titulo", "Proyecto");
          this.agregarParametroListado("usuario", "Yo");

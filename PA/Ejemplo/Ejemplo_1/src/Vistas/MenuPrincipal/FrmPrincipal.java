@@ -44,7 +44,8 @@ public class FrmPrincipal extends  javax.swing.JFrame {
 
         jmenu.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
 
-        mnConfiguracion.setText("Configuración");
+        mnConfiguracion.setText("Menu");
+        mnConfiguracion.setToolTipText("");
         mnConfiguracion.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
         mnConfiguracion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -14,15 +14,18 @@ import javax.swing.DefaultComboBoxModel;
  */
 
 
-public class GestorModelo extends  GestorHibernate{
+public class GestorModelo extends  GestorHibernate
+{
     private Modelo  model;
     //private GestorTipoProyecto gestorTipoProyecto = new GestorTipoProyecto();
     
-    public Modelo  getModel() {
+    public Modelo  getModel() 
+    {
         return model;
     }
 
-    public void setModel(Modelo  modelo) {
+    public void setModel(Modelo  modelo)
+    {
         this.model = modelo;
     }
 
@@ -41,19 +44,23 @@ public class GestorModelo extends  GestorHibernate{
       //  return String.valueOf(this.getModel().getCodigo());
     //}
    
-    public String getNombreModelo() {
+    public String getNombreModelo()
+    {
         return this.getModel().getNombreModelo();
     }
 
-    public void setNombreModelo(String nombreModelo) {
+    public void setNombreModelo(String nombreModelo) 
+    {
         this.getModel().setNombreModelo(nombreModelo);
     }
 
-    public int getEstado() {
+    public int getEstado() 
+    {
         return this.getModel().getEstado();
     }
 
-    public void setEstado(int estado) {
+    public void setEstado(int estado) 
+    {
         this.getModel().setEstado(estado);
     }
     
@@ -82,7 +89,8 @@ public class GestorModelo extends  GestorHibernate{
    ///////////////////////////////////////////////////////////////
        
     // Altas, bajas y modificaciones 
-    public void newModel() {
+    public void newModel()
+    {
          this.setModel(new Modelo());
     }
 
@@ -92,8 +100,10 @@ public class GestorModelo extends  GestorHibernate{
     }
     */
      
-    public void saveModel(int opcABM) {
-        switch (opcABM){
+    public void saveModel(int opcABM)
+    {
+        switch (opcABM)
+        {
           case 0:
             this.guardarObjeto();
             break;
@@ -107,22 +117,26 @@ public class GestorModelo extends  GestorHibernate{
         }
     }
     
-    public void guardarObjeto(){
+    public void guardarObjeto()
+    {
         //this.newCodigo();
         this.guardarObjeto(this.getModel());
     } 
    
-    public void actualizarObjeto() {
+    public void actualizarObjeto() 
+    {
         this.actualizarObjeto(this.getModel());
     }
   
-    public void eliminar() {
+    public void eliminar() 
+    {
         this.getModel().eliminar();
         this.actualizarObjeto();
     }
     
    // busquedas, iteradores y otras 
-    public List <Modelo> listar(){   
+    public List <Modelo> listar()
+    {   
         return this.listarClase(Modelo.class,"estado",0);
     }
         
@@ -135,10 +149,12 @@ public class GestorModelo extends  GestorHibernate{
     }
     */
     
-    public DefaultComboBoxModel getComboModel() {      
+    public DefaultComboBoxModel getComboModel()
+    {      
         DefaultComboBoxModel auxModel= new DefaultComboBoxModel();
         auxModel.addElement("");
-        for (Modelo auxTipo : this.listar()) {
+        for (Modelo auxTipo : this.listar()) 
+        {
             auxModel.addElement(auxTipo);
         }
          return auxModel;

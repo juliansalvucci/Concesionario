@@ -52,8 +52,8 @@ public class GestorVistaMarca extends GestorVista {
     }
   
      public void initializeTabla(JTable tbl) {
-        String[] titulo={"","Deuda"};
-        String[] ancho ={"5","200"};
+        String[] titulo={"","Nombre"};
+        String[] ancho ={"5","570"};
         this.newModelTable(tbl,titulo,ancho);  
     } 
     

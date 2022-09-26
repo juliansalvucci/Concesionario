@@ -322,7 +322,7 @@ public class FrmModelo extends FrmGenerica {
         tbl = new javax.swing.JTable();
         btnImprimir = new javax.swing.JButton();
 
-        setTitle("Marca");
+        setTitle("Gestión modelos");
         setToolTipText("Proyecto");
         setFrameIcon(null);
         setName("TipoServicio"); // NOI18N
@@ -364,7 +364,7 @@ public class FrmModelo extends FrmGenerica {
         txtNombreModelo.setBounds(110, 50, 460, 23);
 
         jLabel2.setFont(new java.awt.Font("Bodoni MT", 0, 14)); // NOI18N
-        jLabel2.setText("Denominación");
+        jLabel2.setText("Nombre");
         jLabel2.setRequestFocusEnabled(false);
         jPanel1.add(jLabel2);
         jLabel2.setBounds(17, 50, 90, 20);

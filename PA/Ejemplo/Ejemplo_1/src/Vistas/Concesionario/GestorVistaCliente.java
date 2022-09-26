@@ -6,8 +6,6 @@ package Vistas.Concesionario;
 
 import Modelos.Concesionario.Cliente;
 import Modelos.Concesionario.GestorCliente;
-import Modelos.Concesionario.GestorMarca;
-import Modelos.Concesionario.Marca;
 import Vistas.GestorVista;
 import javax.swing.JComboBox;
 import javax.swing.JDesktopPane;
@@ -19,92 +17,112 @@ import javax.swing.JTable;
  * @author julia
  */
 
-public class GestorVistaCliente extends GestorVista {
+public class GestorVistaCliente extends GestorVista 
+{
     FrmCliente form;  
     GestorCliente gestor= new GestorCliente();                  
  
  //Definicion de getter y setter de variables, objetos y gestores   
-    public Cliente getModel() {
+    public Cliente getModel()
+    {
         return this.gestor.getModel();
     }
 
-    public void setModel(JComboBox cmb) {
+    public void setModel(JComboBox cmb)
+    {
         this.setModel((Cliente) cmb.getSelectedItem());
     }
 
-    private void setModel(Cliente model) {
+    private void setModel(Cliente model) 
+    {
         this.getGestor().setModel(model);
     }
 
-    public GestorCliente getGestor() {
+    public GestorCliente getGestor() 
+    {
         return gestor;
     }
 
-    public void setGestor(GestorCliente gestor) {
+    public void setGestor(GestorCliente gestor) 
+    {
         this.gestor = gestor;
     }
 
-    public FrmCliente getForm() {
+    public FrmCliente getForm()
+    {
         return form;
     }
 
-    public void setForm(FrmCliente form) {
+    public void setForm(FrmCliente form) 
+    {
         this.form = form;
     }
   
-     public void initializeTabla(JTable tbl) {
-        String[] titulo={"","Deuda"};
-        String[] ancho ={"5","200"};
+     public void initializeTabla(JTable tbl) 
+     {
+        String[] titulo={"","Nombre"};
+        String[] ancho ={"5","570"};
         this.newModelTable(tbl,titulo,ancho);  
-    } 
+     } 
     
     
     @Override
-    public void newModel() {
+    public void newModel()
+    {
         this.gestor.newModel();
         this.setModoNuevo();
     } 
 
     @Override
-    public void cancelarView() {
+    public void cancelarView() 
+    {
         
     }
 
     @Override
-    public void deleteView() {
+    public void deleteView() 
+    {
         
          this.getGestor().eliminar();
          this.getForm().viewEliminar();
     }
     
     @Override
-    public int setModel() { 
-        if (this.isDatosValidos()) {
+    public int setModel() 
+    { 
+        if (this.isDatosValidos()) 
+        {
             this.getGestor().setNombreMarca(this.getForm().getTxtNombreCliente().getText());     
             //this.getGestor().setTipoProyecto((TipoProyecto) this.getForm().getCmbTipoProyecto().getSelectedItem());
             //this.getGestor().setDetalle(this.getForm().getTbl());
-            return 0;}
-        else {
+            return 0;
+        }
+        else 
+        {
             return 1;
         } 
     }
     
     @Override
-    public void saveView() {
+    public void saveView() 
+    {
         int err;
         err= this.setModel();
-        if (err ==0){ 
+        if (err ==0)
+        { 
            this.getGestor().saveModel(this.getOpcABM());
            this.actualizarView();
         }
     }
     
     @Override
-    public boolean isDatosValidos() {
+    public boolean isDatosValidos()
+    {
         if (this.isEmpty(this.getForm().getTxtNombreCliente())) 
-           { JOptionPane.showMessageDialog(null, "Falta ingresar la descripción del Proyecto");
-            this.getForm().getTxtNombreCliente().grabFocus();
-            return false; 
+           { 
+               JOptionPane.showMessageDialog(null, "Falta ingresar la descripción del Proyecto");
+               this.getForm().getTxtNombreCliente().grabFocus();
+               return false; 
            } 
     
         /*
@@ -138,12 +156,14 @@ public class GestorVistaCliente extends GestorVista {
     }
     */
 
-    public void setModelMarca(JComboBox cmb) {
+    public void setModelMarca(JComboBox cmb) 
+    {
         cmb.setModel(gestor.getComboModel());
     }
  
     @Override
-    public void openFormulario(JDesktopPane pantalla) {
+    public void openFormulario(JDesktopPane pantalla)
+    {
         this.setEscritorio(pantalla);
         this.setForm(new FrmCliente(this));
         this.setTitulo(this.getForm().getTitle());
@@ -152,7 +172,8 @@ public class GestorVistaCliente extends GestorVista {
     }
       
     @Override
-    public void getView() {
+    public void getView() 
+    {
         //this.getForm().getTxtCodigo().setText(this.getGestor().getCodigo());
         this.getForm().getTxtNombreCliente().setText(this.getGestor().getNombreMarca());
         //this.getForm().getCmbTipoProyecto().setSelectedItem(this.getGestor().getTipoProyecto());
@@ -160,9 +181,11 @@ public class GestorVistaCliente extends GestorVista {
     }
     
     @Override
-    public void actualizarView() {
+    public void actualizarView()
+    {
         this.getForm().viewGuardar();
-        if (this.getOpcABM()==0) {
+        if (this.getOpcABM()==0) 
+        {
             //this.getForm().getTxtCodigo().setText(this.getGestor().getCodigo());
             //this.getGestor().setDetalle(this.getForm().getTbl());
         }
@@ -199,17 +222,21 @@ public class GestorVistaCliente extends GestorVista {
     */
 
    
-    private boolean isItemValidos() {
+    private boolean isItemValidos()
+    {
         return true;
     }
 
-    public void removeItem() {
-       if (this.isItemTablaSelected(this.getForm().getTbl())){
+    public void removeItem()
+    {
+       if (this.isItemTablaSelected(this.getForm().getTbl()))
+       {
            this.removeItemTabla(this.getForm().getTbl());
-        }
+       }
     }
 
-   public void imprimir() {
+   public void imprimir() 
+   {
 
         this.abrirListado(this.pathReportes+"ListadoTipoDominio.jasper");
         this.agregarParametroListado("titulo", "Proyecto");
